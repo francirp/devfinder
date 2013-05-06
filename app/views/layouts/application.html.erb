@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Devfinder</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="<%= posts_url %>">Posts</a></li>
+      <li><a href="<%= locations_url %>">Locations</a></li>
+      <li><a href="<%= users_url %>">Users</a></li>
+<%= yield %>
+
+</body>
+</html>

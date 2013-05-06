@@ -1,0 +1,36 @@
+<h1>Posts</h1>
+
+<p><%= link_to 'Add a New Post', new_post_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Location</th>
+      <th>Status</th>
+      <th>Duration</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.user.name %></td>
+      <td><%= post.location.name %></td>
+      <td><%= post.status %></td>
+      <td><%= post.duration %></td>
+      <td><%= post.description %></td>
+
+      <td><%= link_to 'Show', post_url(post) %></td>
+      <td><%= link_to 'Edit', edit_post_url(post) %></td>
+      <td><%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,36 @@
+<h1>Editing Post #<%= @post.id %></h1>
+
+
+<%= form_tag(post_url(@post), method: 'put') do %>
+
+  <div>
+    <%= label_tag :user_id %><br />
+    <%= number_field_tag :user_id, @post.user_id %>
+  </div>
+
+  <div>
+    <%= label_tag :location_id %><br />
+    <%= number_field_tag :location_id, @post.location_id %>
+  </div>
+
+  <div>
+    <%= label_tag :status %><br />
+    <%= text_field_tag :status, @post.status %>
+  </div>
+
+  <div>
+    <%= label_tag :duration %><br />
+    <%= text_field_tag :duration, @post.duration %>
+  </div>
+
+  <div>
+    <%= label_tag :description %><br />
+    <%= text_field_tag :description, @post.description %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Post" %>
+  </div>
+
+<% end %>

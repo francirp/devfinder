@@ -1,0 +1,36 @@
+<h1>Editing Location #<%= @location.id %></h1>
+
+
+<%= form_tag(location_url(@location), method: 'put') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @location.name %>
+  </div>
+
+  <div>
+    <%= label_tag :neighborhood %><br />
+    <%= text_field_tag :neighborhood, @location.neighborhood %>
+  </div>
+
+  <div>
+    <%= label_tag :street %><br />
+    <%= text_field_tag :street, @location.street %>
+  </div>
+
+  <div>
+    <%= label_tag :city %><br />
+    <%= text_field_tag :city, @location.city %>
+  </div>
+
+  <div>
+    <%= label_tag :state %><br />
+    <%= text_field_tag :state, @location.state %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Location" %>
+  </div>
+
+<% end %>
