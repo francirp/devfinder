@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Source url</th>
+      <th>Picture</th>
       <th>Tsl class</th>
       <th>Email</th>
       <th>Phone</th>
@@ -21,12 +21,12 @@
   <% @users.each do |user| %>
     <tr>
       <td><%= user.name %></td>
-      <td><%= user.source_url %></td>
+      <td><%= image_tag user.source_url %></td>
       <td><%= user.tsl_class %></td>
       <td><%= user.email %></td>
       <td><%= user.phone %></td>
       <td><%= user.twitter %></td>
-  
+
       <td><%= link_to 'Show', user_url(user) %></td>
       <td><%= link_to 'Edit', edit_user_url(user) %></td>
       <td><%= link_to 'Destroy', user_url(user), method: 'delete', data: { confirm: "Do you really want to delete this user?" } %></td>

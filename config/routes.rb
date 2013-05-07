@@ -1,4 +1,5 @@
 Devfinder::Application.routes.draw do
+  root :to => 'posts#index'
   # Routes for the Location resource:
   # CREATE
   get '/locations/new', controller: 'locations', action: 'new', as: 'new_location'
