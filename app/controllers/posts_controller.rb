@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     @post.status = params[:status]
     @post.duration = params[:duration]
     @post.description = params[:description]
+    @post.posted_time = params[:posted_time]
 
     if @post.save
             redirect_to posts_url
