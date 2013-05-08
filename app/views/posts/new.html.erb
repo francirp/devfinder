@@ -1,36 +1,44 @@
-<h1>New Post</h1>
+<h1 class="span4 offset4">New Post</h1>
 
 
-<%= form_tag(posts_url, method: 'post') do %>
+<%= form_tag(posts_url, method: 'post', :class => 'clearfix form-horizontal span6 offset2') do %>
 
-
-  <div>
-    <%= label_tag :user_id, "Name" %><br />
-    <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :name) %>
+  <div class="control-group">
+    <%= label_tag :user_id, "Name", :class => "control-label"  %>
+      <div class="controls">
+        <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :name) %>
+      </div>
   </div>
 
-  <div>
-    <%= label_tag :location_id %><br />
-    <%= select_tag :location_id, options_from_collection_for_select(Location.all, :id, :name) %>
+  <div class="control-group">
+    <%= label_tag :location_id, "Location", :class => "control-label" %>
+      <div class="controls">
+        <%= select_tag :location_id, options_from_collection_for_select(Location.all, :id, :name) %>
+      </div>
   </div>
 
-  <div>
-    <%= label_tag :status %><br />
-    <%= select_tag :status, options_for_select(@statuses) %>
+  <div class="control-group">
+    <%= label_tag :status, "Status", :class => "control-label" %>
+      <div class="controls">
+      <%= select_tag :status, options_for_select(@statuses) %>
+      </div>
   </div>
 
-  <div>
-    <%= label_tag :duration, "How long will you be here?" %><br />
-    <%= select_tag :duration, options_for_select(@durations) %>
+  <div class="control-group">
+    <%= label_tag :duration, "How long?", :class => "control-label" %>
+      <div class="controls">
+      <%= select_tag :duration, options_for_select(@durations) %>
+    </div>
   </div>
 
-  <div>
-    <%= label_tag :description %><br />
-    <%= text_field_tag :description %>
+  <div class="control-group">
+    <%= label_tag :description, "Description", :class => "control-label" %>
+      <div class="controls">
+      <%= text_field_tag :description %>
+    </div>
   </div>
 
-
-  <div>
-    <%= submit_tag "Create Post" %>
-  </div>
+    <div>
+      <button type="submit" class="btn btn-primary span2 offset2">Create Post</button>
+    </div>
 <% end %>
