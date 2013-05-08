@@ -18,9 +18,8 @@ class UsersController < ApplicationController
     @user.source_url = params[:source_url]
     @user.tsl_class = params[:tsl_class]
     @user.email = params[:email]
-    @user.phone = params[:phone]
     @user.twitter = params[:twitter]
-    
+
     if @user.save
             redirect_to users_url
           else
@@ -40,7 +39,7 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     @user.phone = params[:phone]
     @user.twitter = params[:twitter]
-    
+
     if @user.save
             redirect_to users_url
           else
