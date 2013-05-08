@@ -10,6 +10,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @statuses = ["Coding", "Hanging Out", "Lunch Anyone?"]
+    @durations = ["1 hour", "2 hours", "3 hours", "4+ hours"]
   end
 
   def create
