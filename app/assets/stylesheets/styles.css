@@ -5,3 +5,8 @@ h1 {
 .clearfix {
   clear: both;
 }
+
+img {
+height: 100px;
+width: 100px;
+}
