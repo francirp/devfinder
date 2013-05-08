@@ -7,15 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-  <nav>
-    <ul>
-      <li><a href="<%= posts_url %>">Posts</a></li>
-      <li><a href="<%= locations_url %>">Locations</a></li>
-      <li><a href="<%= users_url %>">Users</a></li>
-    </ul>
-  </nav>
-</header>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">DevFinder</a>
+      <ul class="nav">
+      <li class="<%= 'active' if current_page?(posts_url) %>"><a href="<%= posts_url %>">Posts</a></li>
+      <li class="<%= 'active' if current_page?(users_url) %>"><a href="<%= users_url %>">Users</a></li>
+      <li class="<%= 'active' if current_page?(locations_url) %>"><a href="<%= locations_url %>">Locations</a></li>
+      </ul>
+    </div>
+  </div>
 
 <%= yield %>
 
