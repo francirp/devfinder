@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Picture</th>
       <th>Tsl class</th>
       <th>Email</th>
       <th>Twitter</th>
@@ -16,6 +17,7 @@
   <% @users.each do |user| %>
     <tr>
       <td><%= user.name %></td>
+      <td><%= image_tag user.source_url %></td>
       <td><%= user.tsl_class %></td>
       <td><%= user.email %></td>
       <td><%= user.twitter %></td>
