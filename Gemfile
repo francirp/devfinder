@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'omniauth-oauth2'
+gem 'omniauth-starterleague', :git => 'git://github.com/darbyfrey/omniauth-starterleague.git'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -9,6 +11,7 @@ gem 'starter_generators'
 
 group :development do
   gem 'sqlite3'
+  gem 'dotenv-rails'
 end
 
 group :production do

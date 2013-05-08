@@ -1,0 +1,19 @@
+<h1 class="form span8 offset2">Sign in to DevFinder!</h1>
+
+
+<%= form_tag(sessions_url, method: 'post', :class => 'clearfix form-horizontal span6 offset2') do %>
+
+  <%= link_to "Sign in via Portal", "/auth/starterleague" %>
+
+  <div class="control-group">
+    <%= label_tag :email, "Email", :class => "control-label" %>
+      <div class="controls">
+        <%= text_field_tag :email %>
+      </div>
+  </div>
+
+    <div>
+      <button type="submit" class="btn btn-primary span2 offset2">Create Post</button>
+    </div>
+
+<% end %>

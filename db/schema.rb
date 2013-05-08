@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130506170813) do
+ActiveRecord::Schema.define(:version => 20130508205609) do
 
   create_table "locations", :force => true do |t|
     t.string "name"
@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(:version => 20130506170813) do
     t.string  "email"
     t.integer "phone"
     t.string  "twitter"
+    t.string  "provider"
+    t.string  "access_token"
+    t.integer "uid"
   end
 
 end

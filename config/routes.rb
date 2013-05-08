@@ -1,5 +1,15 @@
 Devfinder::Application.routes.draw do
   root :to => 'posts#index'
+
+  #Routes for OmniAuth
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+
+  #Routes for the Login process:
+  # get '/sessions/new' => 'sessions#new', :as => 'new_session'
+  # post '/sessions' => 'sessions#create', :as => 'sessions'
+  # delete '/sessions' => 'sessions#destroy'
+
   # Routes for the Location resource:
   # CREATE
   get '/locations/new', controller: 'locations', action: 'new', as: 'new_location'
