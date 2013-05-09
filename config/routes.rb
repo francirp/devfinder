@@ -3,7 +3,7 @@ Devfinder::Application.routes.draw do
 
   #Routes for OmniAuth
   match 'http://devfinder.co/auth/starterleague/callback', to: 'sessions#create'
-  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/:provider/callback:state', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
 
   #Routes for the Login process:
