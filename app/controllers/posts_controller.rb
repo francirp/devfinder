@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @statuses = ["Coding", "Hanging Out", "Lunch Anyone?"]
     @durations = ["1 hour", "2 hours", "3 hours", "4+ hours"]
+    @user = User.find_by_id(session[:user_id])
   end
 
   def create

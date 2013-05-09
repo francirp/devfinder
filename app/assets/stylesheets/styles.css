@@ -10,3 +10,9 @@ img {
 height: 100px;
 width: 100px;
 }
+
+#navbar-right {
+  float: right;
+  width: 150px;
+  height: 42px;
+}

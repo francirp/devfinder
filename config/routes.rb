@@ -6,9 +6,9 @@ Devfinder::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
 
   #Routes for the Login process:
-  # get '/sessions/new' => 'sessions#new', :as => 'new_session'
-  # post '/sessions' => 'sessions#create', :as => 'sessions'
-  # delete '/sessions' => 'sessions#destroy'
+  get '/sign_in' => 'sessions#new'
+  post '/sessions' => 'sessions#create', :as => 'sessions'
+  get '/sign_out' => 'sessions#destroy'
 
   # Routes for the Location resource:
   # CREATE
