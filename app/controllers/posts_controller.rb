@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @posts = @posts.sort_by(&:posted_time).reverse
   end
 
   def show
