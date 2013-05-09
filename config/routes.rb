@@ -2,8 +2,8 @@ Devfinder::Application.routes.draw do
   root :to => 'posts#index'
 
   #Routes for OmniAuth
-  match 'auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/')
+  match '/auth/:provider/callback', to: 'sessions#create'
+  match '/auth/failure', to: redirect('/')
 
   #Routes for the Login process:
   get '/sign_in' => 'sessions#new'
