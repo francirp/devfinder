@@ -2,7 +2,7 @@ Devfinder::Application.routes.draw do
   root :to => 'posts#index'
 
   #Routes for OmniAuth
-  match 'http://devfinder.co/auth/:provider/callback', to: 'sessions#create'
+  match 'http://www.devfinder.co/auth/:provider/callback', to: 'sessions#create'
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
 
