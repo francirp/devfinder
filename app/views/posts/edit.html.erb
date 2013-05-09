@@ -1,36 +1,42 @@
-<h1>Editing Post #<%= @post.id %></h1>
+<h1 class="span8 offset2">Edit your post below.</h1>
 
 
-<%= form_tag(post_url(@post), method: 'put') do %>
+<%= form_tag(post_url(@post), method: 'put', :class => 'clearfix form-horizontal span6 offset2') do %>
 
-  <div>
-    <%= label_tag :user_id %><br />
-    <%= number_field_tag :user_id, @post.user_id %>
+  <%= hidden_field_tag :user_id, @post.user_id %>
+
+  <div class="control-group">
+    <%= label_tag :location_id, "Location", :class => "control-label" %>
+      <div class="controls">
+        <%= select_tag :location_id, options_from_collection_for_select(Location.all, :id, :name, @post.location_id) %> <br />
+        <%= link_to 'Or add a new location', new_location_url %>
+      </div>
   </div>
 
-  <div>
-    <%= label_tag :location_id %><br />
-    <%= number_field_tag :location_id, @post.location_id %>
+  <div class="control-group">
+    <%= label_tag :status, "Status", :class => "control-label" %>
+      <div class="controls">
+      <%= select_tag :status, options_for_select(@statuses, @post.status) %>
+      </div>
   </div>
 
-  <div>
-    <%= label_tag :status %><br />
-    <%= text_field_tag :status, @post.status %>
+  <div class="control-group">
+    <%= label_tag :duration, "How long?", :class => "control-label" %>
+      <div class="controls">
+      <%= select_tag :duration, options_for_select(@durations, @post.duration) %>
+    </div>
   </div>
 
-  <div>
-    <%= label_tag :duration %><br />
-    <%= text_field_tag :duration, @post.duration %>
+  <div class="control-group">
+    <%= label_tag :description, "Description", :class => "control-label" %>
+      <div class="controls">
+      <%= text_field_tag :description, @post.description %>
+    </div>
   </div>
 
-  <div>
-    <%= label_tag :description %><br />
-    <%= text_field_tag :description, @post.description %>
-  </div>
+  <%= hidden_field_tag :posted_time, Time.new %>
 
-  
-  <div>
-    <%= submit_tag "Update Post" %>
-  </div>
-
+    <div>
+      <button type="submit" class="btn btn-primary span2 offset2">Update Post</button>
+    </div>
 <% end %>

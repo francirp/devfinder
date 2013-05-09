@@ -34,6 +34,9 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_by_id(params[:id])
+    @statuses = ["Coding", "Hanging Out", "Lunch Anyone?"]
+    @durations = ["1 hour", "2 hours", "3 hours", "4+ hours"]
+    @user = User.find_by_id(session[:user_id])
   end
 
   def update
@@ -43,6 +46,7 @@ class PostsController < ApplicationController
     @post.status = params[:status]
     @post.duration = params[:duration]
     @post.description = params[:description]
+    @post.posted_time = params[:posted_time]
 
     if @post.save
             redirect_to posts_url

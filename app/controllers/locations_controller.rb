@@ -10,6 +10,7 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    @user = User.find_by_id(session[:user_id])
   end
 
   def create
@@ -19,7 +20,7 @@ class LocationsController < ApplicationController
     @location.street = params[:street]
     @location.city = params[:city]
     @location.state = params[:state]
-    
+
     if @location.save
             redirect_to locations_url
           else
@@ -38,7 +39,7 @@ class LocationsController < ApplicationController
     @location.street = params[:street]
     @location.city = params[:city]
     @location.state = params[:state]
-    
+
     if @location.save
             redirect_to locations_url
           else

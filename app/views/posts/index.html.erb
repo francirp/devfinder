@@ -1,4 +1,10 @@
-<h1><%= link_to 'Where are you coding?', new_post_url %></h1>
+<h1>
+  <% if current_user %>
+    <%= link_to 'Where are you coding?', new_post_url %>
+  <% else %>
+    <%= link_to 'Sign in Via Portal Here', '/auth/starterleague' %>
+  <% end %>
+</h1>
 
 <table class="table table-striped">
   <thead>
@@ -21,9 +27,9 @@
       <td><%= post.duration %></td>
       <td><%= post.description %></td>
       <td><%= distance_of_time_in_words(post.posted_time, to_time = Time.now, include_seconds = false) %> ago</td>
-      <td><%= link_to 'Show', post_url(post) %></td>
+
       <td><%= link_to 'Edit', edit_post_url(post) %></td>
-      <td><%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %></td>
+      <td><%= link_to 'Delete', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %></td>
 
     </tr>
   <% end %>
