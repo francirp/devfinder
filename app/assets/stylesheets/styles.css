@@ -1,3 +1,13 @@
+body {
+  background-image: url("http://localhost:3000/assets/grey_wash_wall.png")
+}
+
+.container {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  background-color: white;
+}
+
 h1 {
   padding: 20px;
 }
