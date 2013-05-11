@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @statuses = ["Coding", "Hanging Out", "Lunch Anyone?"]
+    @statuses = ["Coding", "Hanging Out", "Lunch"]
     @durations = ["1:00","2:00","3:00","4:00","5:00","6:00","7:00","8:00","9:00","10:00","11:00","12:00"]
     @user = User.find_by_id(session[:user_id])
   end
@@ -36,8 +36,8 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_by_id(params[:id])
-    @statuses = ["Coding", "Hanging Out", "Lunch Anyone?"]
-    @durations = ["1 hour", "2 hours", "3 hours", "4+ hours"]
+    @statuses = ["Coding", "Hanging Out", "Lunch"]
+    @durations = ["1:00","2:00","3:00","4:00","5:00","6:00","7:00","8:00","9:00","10:00","11:00","12:00"]
     @user = User.find_by_id(session[:user_id])
   end
 
