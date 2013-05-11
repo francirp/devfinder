@@ -1,40 +1,53 @@
-<h1>
+
+
+
+<div class="left-col">
   <% if current_user %>
-    <%= link_to 'Where are you coding?', new_post_url %>
+    <div class="button-header">
+      <a href="<%= new_post_url %>"><button class="btn btn-primary btn-large span3 offset2">git add</button></a>
+    </div>
   <% else %>
     <%= link_to 'Sign in Via Portal Here', '/auth/starterleague' %>
   <% end %>
-</h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Avatar</th>
-      <th>Location</th>
-      <th>Status</th>
-      <th>Duration</th>
-      <th>Description</th>
-      <th>Posted</th>
-    </tr>
-  </thead>
-
-  <tbody>
   <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.user.name %></td>
-      <td><%= image_tag post.user.source_url %></td>
-      <td><%= post.location.name %></td>
-      <td><%= post.status %></td>
-      <td><%= post.duration %></td>
-      <td><%= post.description %></td>
-      <td><%= distance_of_time_in_words(post.posted_time, to_time = Time.now, include_seconds = false) %> ago</td>
-
-      <td><%= link_to 'Edit', edit_post_url(post) %></td>
-      <td><%= link_to 'Delete', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %></td>
-
-    </tr>
+    <div class="clearfix hero-unit">
+      <div class="media">
+        <a class="pull-left" href="<%= user_url(post.user.id) %>">
+          <%= image_tag post.user.source_url, :class => "media-object img-circle" %>
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading"><%= post.user.name %> at <%= link_to post.location.name, location_url(post.location.id) %><span class="duration"> (Until <%= post.duration %>)</span></h4>
+          <div class="media">
+            <% if post.description.length >= 1 %>
+              <p>"<%= post.description %>"</p>
+            <% else %>
+              <br />
+            <% end %>
+            <h5><%= distance_of_time_in_words(post.posted_time, to_time = Time.now, include_seconds = false) %> ago
+            <%= link_to image_tag("iconmonstr-trash-can-15-icon.png", :class => 'edit-button right'), post_url(post.id), :method => 'delete', data: { confirm: "Do you really want to delete this post?" } %>
+            <%= link_to image_tag("iconmonstr-edit-9-icon.png", :class => 'edit-button right'), edit_post_url(post.id) %>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-  </tbody>
-</table>
+</div>
 
+<div class="right-col">
+  <h1>Leaderboard</h1>
+  <% @users_leaderboard.each do |user| %>
+    <div class="hero-unit">
+      <div class="media">
+        <a class="pull-left" href="<%= user_url(user.id) %>">
+          <%= image_tag user.source_url, :class => "media-object img-circle" %>
+        </a>
+        <h4 class="media-header"><%= user.name %></h4>
+          <div class="media-body">
+             <p><%= user.posts.count %> coding sessions</p>
+          </div>
+      </div>
+    </div>
+  <% end %>
+</div>

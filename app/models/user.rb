@@ -17,5 +17,4 @@ class User < ActiveRecord::Base
       user.source_url = auth.info.avatar
     end
   end
-
 end

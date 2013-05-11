@@ -13,15 +13,15 @@
       </div>
   </div>
 
-  <div class="control-group">
+<!--   <div class="control-group">
     <%= label_tag :status, "Status", :class => "control-label" %>
       <div class="controls">
       <%= select_tag :status, options_for_select(@statuses) %>
       </div>
-  </div>
+  </div> -->
 
   <div class="control-group">
-    <%= label_tag :duration, "How long?", :class => "control-label" %>
+    <%= label_tag :duration, "Until...", :class => "control-label" %>
       <div class="controls">
       <%= select_tag :duration, options_for_select(@durations) %>
     </div>
@@ -30,7 +30,7 @@
   <div class="control-group">
     <%= label_tag :description, "Description", :class => "control-label" %>
       <div class="controls">
-      <%= text_field_tag :description %>
+      <%= text_area_tag :description %>
     </div>
   </div>
 
