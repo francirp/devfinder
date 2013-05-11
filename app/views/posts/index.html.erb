@@ -2,13 +2,13 @@
 
 
 <div class="left-col">
-  <% if current_user %>
-    <div class="button-header">
-      <a href="<%= new_post_url %>"><button class="btn btn-primary btn-large span3 offset2">git add</button></a>
-    </div>
-  <% else %>
-    <%= link_to 'Sign in Via Portal Here', '/auth/starterleague' %>
-  <% end %>
+  <div class="button-header">
+    <% if current_user %>
+        <a href="<%= new_post_url %>"><button class="btn btn-primary btn-large span3 offset2">git add</button></a>
+    <% else %>
+      <a href="/auth/starterleague"><button class="btn btn-primary btn-large span3 offset2">Sign in via TSL Portal</button></a>
+    <% end %>
+  </div>
 
   <% @posts.each do |post| %>
     <div class="clearfix hero-unit">
