@@ -1,5 +1,5 @@
 body {
-  background-image: url("http://localhost:3000/assets/grey_wash_wall.png");
+  background-image: url("/assets/grey_wash_wall.png");
   padding: 60px 0 0 0;
 }
 
